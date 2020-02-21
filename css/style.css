@@ -1,0 +1,566 @@
+/* 
+	substr(string, start, stop).' ...' Pour raccourcir une chaine de caractère
+ */
+
+:root {
+	--body: #F5F5F5;
+	--blue: #0041D9;
+	--darkBlue: #012B8C;
+	--lightBlue: #4275EB;
+	--grey: #B6B6B6;
+
+	--finished: #4FE20E;
+	--waiting: #868686;
+	--encours: #B0B20C;
+	--refused: #E2240E;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background: var(--lightBlue);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--darkBlue);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	color: var(--blue);
+}
+
+body {
+	font-family: "Arial", Helvetica, sans-serif;
+	font-weight: 600;
+	background-color: var(--body);
+}
+
+a {
+	display: block;
+	color: var(--lightBlue);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--blue);
+}
+
+img {
+	border-radius: 10px; 
+	margin: auto;
+}
+
+ul {
+	list-style: none;
+}
+
+ul li.min {
+	width: min-content;
+}
+
+/* NavBar */
+
+nav {
+	display: flex;
+}
+
+nav a {
+	font-size: 30px;
+	font-weight: 800;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 10px;
+	color: var(--blue);
+}
+
+nav a:hover {
+	text-decoration: none;
+}
+
+/* Select */
+
+select {
+	border: none;
+	width: 100%;
+	padding: 10px;
+	font-weight: bold;
+	background-color: var(--body);
+	border-bottom: 2px solid var(--blue);
+}
+
+select:focus {
+	outline: none;
+}
+
+select option {
+	color: white;
+	font-weight: bold;
+	background-color: var(--darkBlue);
+}
+
+/* Button */
+
+button {
+	padding: 10px;
+	box-sizing: border-box;
+  	border-radius: 5px;
+  	border: 2px solid var(--blue);
+	background-color: var(--body);
+}
+
+button:focus {
+	outline:none;
+}
+
+button:hover {
+	cursor: pointer;
+	color: var(--darkBlue);
+  	border: 2px solid var(--darkBlue);
+}
+
+button.cancel {
+	color: white;
+	background-color: var(--blue);
+}
+
+button.cancel:hover {
+	background-color: var(--darkBlue);
+}
+
+button.style-input {
+	border: none;
+	border-radius: 0;
+	background-color: var(--body);
+  	border-bottom: 2px solid var(--blue);
+}
+
+button.style-a {
+	border: none;
+	cursor: pointer;
+	color: var(--lightBlue);
+}
+
+button.style-a:hover {
+	text-decoration: underline;
+	color: var(--blue);
+}
+
+/* Input */
+
+input {
+	width: 100%;
+	border: none;
+	padding: 10px;
+	box-sizing: border-box;
+	background-color: var(--body);
+  	border-bottom: 2px solid var(--blue);
+}
+
+input::placeholder {
+	color: var(--lightBlue);
+}
+
+input:focus {
+	outline:none;
+}
+
+input[type=submit] {
+	font-weight: bold;
+	color: var(--blue);
+}
+
+input[type=submit]:hover {
+	color: var(--darkBlue);
+  	border-bottom: 2px solid var(--darkBlue);
+}
+
+/* Flex */
+
+.flex, .flex-vertical , .flex-equal, .flex-vertical-equal {
+	display: flex;
+}
+
+.flex-vertical, .flex-vertical-equal {
+	flex-direction: column;
+}
+
+.flex-equal > *, .flex-vertical-equal > * {
+	flex-grow: 1;
+	flex-basis: 0;
+}
+
+.align-self {
+	align-self: center;
+}
+
+/* Grid */
+
+.main-grid, .grid {
+	display: grid;	
+}
+
+.main-grid {
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.grid {
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+}
+
+.grid > *, .main-grid > * {
+	text-align: center;
+	align-self: center;
+}
+
+.grid li a p {
+	text-align: center;
+}
+
+.grid li a:hover {
+	text-decoration: none;
+}
+
+/* Menu */
+
+.menu, .undermenu {
+	width: 75%;
+	margin: auto;
+	display: flex;
+}
+
+.menu {
+	padding-top: 20px;
+}
+
+.menu > *, .undermenu > * {
+	flex-grow: 1;
+	flex-basis: 0;
+}
+
+.menu a, .undermenu a {
+	padding: 10px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.menu a {
+	border-bottom: 2px solid var(--lightBlue);	
+}
+
+.menu a:hover {
+	color: var(--blue);
+	text-decoration: none;
+	border-bottom: 2px solid var(--blue);
+}
+
+.menu a.selected {
+	color: var(--darkBlue);
+	border-bottom: 2px solid var(--darkBlue);	
+}
+
+.undermenu a:hover {
+	text-decoration: none;
+}
+
+.undermenu div.undersection a.selected {
+	color: white;
+	background-color: var(--darkBlue);
+}
+
+/* Form */
+
+.form {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form h1 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+.form form {
+	width: 50%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.form form a:hover {
+	text-decoration: underline;
+}
+
+.form form input {
+	width: 60%;
+	font-size: 16px;
+}
+
+.form form input[type=submit] {
+	width: 40%;
+	background-color: var(--body);
+}
+
+/* Panel */
+
+.panel {
+	display: flex;
+	width: 100%;
+	height: 500px;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+}
+
+.panel > a {
+	flex-grow: 1;
+	align-self: center;
+}
+
+.panel ul {
+	display: grid;
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: auto;
+	justify-content: space-around;
+	grid-template-columns: repeat(5, 1fr);
+	grid-auto-rows: 125px;
+}
+
+.panel ul > li {
+	height: 100%;
+}
+
+.panel ul li.flex {
+	justify-content: center;
+	align-items: center;
+}
+
+.panel ul li img {
+	width: 150px;
+}
+
+.panel ul li a {
+	
+}
+
+.panel ul li a.titre {
+	width: 70%;
+	color: var(--darkBlue);
+	border-bottom: 2px solid var(--blue);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.panel ul li a.titre:hover {
+	text-decoration: underline;
+}
+
+/* Text */
+
+.text-center {
+	text-align: center;
+}
+
+.text-justify {
+	text-align: justify;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-finished {
+	color: var(--finished);
+}
+
+.text-waiting {
+	color: var(--waiting);
+}
+
+.text-encours {
+	color: var(--encours);
+}
+
+.text-refused {
+	color: var(--refused);
+}
+
+/* Margin */
+
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.my-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+/* List Accueil */
+
+ul.list {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ul.list li a {
+	display: flex;
+	margin-top: 50px;
+}
+
+ul.list li a:hover {
+	text-decoration: none;
+}
+
+ul.list li a form {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	margin-left: 20px;
+	color: var(--darkBlue);
+}
+
+ul.list li a form p.description {
+	flex-grow: 1;
+	text-align: justify;
+	color: var(--lightBlue);
+}
+
+/* Page */
+
+div.page {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.page ul {
+	display: flex;
+	list-style: none;
+}
+
+div.page ul li {
+	flex-basis: 0;
+}
+
+div.page ul li a {
+	padding-left: 10px;
+	padding-right: 10px;
+	border-bottom: 2px solid var(--blue);
+}
+
+div.page ul li a:hover {
+	color: var(--darkBlue);
+	border-bottom: 2px solid var(--darkBlue);
+}
+
+/* List */
+
+div.list {
+	border-left: 2px solid var(--blue);
+}
+
+div.list * {
+	margin-left: 10px;
+}
+
+div.list h2 {
+	margin-bottom: 10px;	
+}
+
+div.list p {
+	margin-bottom: 5px;	
+}
+
+div.list a {
+	text-decoration: underline;
+	font-size: 16px;
+}
+
+/* Table */
+
+table th, table td {
+	padding: 10px;
+}
+
+/* Modal */
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto;
+	background-color: rgb(0,0,0); 
+	background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+	position: relative;
+	background-color: var(--body);
+	margin: auto;
+	margin-top: 100px;
+	border-radius: 10px;
+	width: 40%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+}
+
+.modal-header {
+	padding: 20px 15px;
+	border-bottom: 1px solid var(--grey);
+}
+
+.modal-body {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.modal-footer {
+	text-align: right;
+	padding: 10px 15px;
+	border-top: 1px solid var(--grey);
+}
+
+@keyframes animatetop {
+	from {top: -300px; opacity: 0}
+	to {top: 0; opacity: 1}
+}
+
+/* Footer */
+
+footer {
+	width: 100%;
+}
+
+footer p {
+	text-align: center;
+}
+
+footer.fixed-bottom {
+	position: fixed;
+	bottom: 0;
+}
